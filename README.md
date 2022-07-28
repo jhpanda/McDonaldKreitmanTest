@@ -7,15 +7,6 @@
    3. Nucleic Acids Res. 2008, W157-62, 10.1093/nar/gkn337.
 
 
-Usage:  
-`cmktest`  
-`   -f, --fasta      input MSA including outgroup species and ingroup populations.  
-    -i, --ingrp      ingroup species (e.g. 'dmel').  
-    -o, --outgrp     outgroup species (e.g. 'dsim,dyak').  
-    -c, --cutoff     optional, default 0.00000001.  
-    -v, --verbose    optional, print polymorphism of each site.  
-    -h, --help       optional, print this info.`  
-
 Steps to do MK test:
 
 1. `vcf2msa.py` to generate a MSA of the target gene(s)
