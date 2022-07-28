@@ -2,19 +2,19 @@
 #             Standard McDonald–Kreitman test
 
 ## Reference:
-##   1. McDonald, J. H. Kreitman (1991).
-##   2. Begun et al 2007.
-##   3. Nucleic Acids Res. 2008, W157-62, 10.1093/nar/gkn337.
+   1. McDonald, J. H. Kreitman (1991).
+   2. Begun et al 2007.
+   3. Nucleic Acids Res. 2008, W157-62, 10.1093/nar/gkn337.
 
 
-Usage:
-`cmktest`
-`   -f, --fasta      input MSA including outgroup species and ingroup populations.`
-`   -i, --ingrp      ingroup species (e.g. 'dmel').`
-`   -o, --outgrp     outgroup species (e.g. 'dsim,dyak').`
-`   -c, --cutoff     optional, default 0.00000001.`
-`   -v, --verbose    optional, print polymorphism of each site.`
-`   -h, --help       optional, print this info.`
+Usage:  
+`cmktest`  
+`   -f, --fasta      input MSA including outgroup species and ingroup populations.  
+    -i, --ingrp      ingroup species (e.g. 'dmel').  
+    -o, --outgrp     outgroup species (e.g. 'dsim,dyak').  
+    -c, --cutoff     optional, default 0.00000001.  
+    -v, --verbose    optional, print polymorphism of each site.  
+    -h, --help       optional, print this info.`  
 
 Steps to do MK test:
 
