@@ -1,0 +1,110 @@
+/*
+ * Read in Fasta
+ */
+
+#include <stdlib.h>
+#include <stdio.h>
+#include <string.h>
+#include "fasta.h"
+#include "polymorph.h"
+#include "fisher_exact.h"
+
+#define MINLEN 500
+#define MAXLEN 8192
+#define CN 5000
+#define STRLEN 20971520
+#define MIN_ALPHA -99.999
+
+//FIT expfit(SFS)
+    /* curve fitting to be added here */
+    /* maybe just least square */
+    /* lmfit only has python version, but maybe I can use it */
+
+    /* Might be interesting: https://math.stackexchange.com/questions/1337601/fit-exponential-with-constant */
+
+SFS sfs_from_Polym(Polym p, double cutoff)
+{
+    int i,j,k,m;
+    SFS sfs;
+
+    snew(sfs.name,MINLEN);
+    strcpy(sfs.name,p.name);
+    
+    float lcut = cutoff;
+    float hcut = 1-cutoff;
+
+    int f_high = (int) ceil(hcut*p.npop);
+    int f_low  = (int) floor(lcut*p.npop);
+
+    int num  =  (int) ceil(1.0/cutoff-1.0) ;
+    int freq = f_low;
+    /* sfs.num = f_high - f_low+1; */
+    sfs.num  = num;
+    printf("%d %d %d\n",f_high,f_low,sfs.num);
+    
+    int Pn_sfs[sfs.num];
+    int Ps_sfs[sfs.num];
+
+    snew(sfs.x,num);
+
+    /* site frequent spectrum */
+    for (i=0;i<num;i++)
+    {
+        Pn_sfs[i] = 0;
+        Ps_sfs[i] = 0;
+    }
+    for (i=0;i<num;i++)
+        sfs.x[i] = (float) freq*(1+i)/p.npop;
+    sfs.x[num-1] = (float) f_high/p.npop;
+
+    for (i=0;i<p.ncodon;i++)
+    {
+        if (p.freq[i] >= f_low)
+        {
+            k = 0;
+            for (m=f_low;m<=p.freq[i];m++)
+            {
+                Pn_sfs[k] +=  p.pn[i]+p.dn[i];
+                Ps_sfs[k] +=  p.ps[i]+p.ds[i];
+                if (m>freq && m%freq==0 || m==f_high)
+                {
+                    k ++;
+                }
+            }
+        }
+    }
+
+    printf("%d\n",sfs.num);
+    for (i=0;i<sfs.num;i++)
+    {
+        printf("%f,",sfs.x[i]);
+    }
+    printf("\n");
+    for (i=0;i<sfs.num;i++)
+    {
+        printf("%d,",Pn_sfs[i]);
+    }
+    printf("\n");
+    for (i=0;i<sfs.num;i++)
+    {
+        printf("%d,",Ps_sfs[i]);
+    }
+    printf("\n");
+
+    return sfs;
+
+}
+
+MK asymMK_from_fasta()
+{
+}
+
+int main(int argc, char *argv[])
+{
+    if (argc!=2)
+    {
+        fprintf(stderr,"Usage: mktest <fasta_list>\n");
+        exit(1);
+    }
+
+}

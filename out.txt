@@ -1,0 +1,5 @@
+
+Name,Ncodon,Npopulation,Pn,Dn,Ps,Ds,Alpha,Pvalue
+Bgn0032916,347,410,3,14,0,22,-99.999,1.000
+
+cMK_from_fasta finished in 0.000s
