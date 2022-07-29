@@ -28,10 +28,12 @@ Steps to do MK test:
      - species name will be used as headers of output MSA
 
     e.g.,
-    `>dmel_0`
-    `>dmel_1`
-    `>dmel_2`
-    `...`
+```
+    >dmel_0
+    >dmel_1
+    >dmel_2
+    ...
+```
 
     where `dmel_0` is CDS of the reference genome
 
@@ -52,20 +54,24 @@ Steps to do MK test:
 3. MK test using the aligned MSA
     3.a make sure that headers in this MSA are correct
         an example:
-        `>dsim_0`
-        `ATGCTTTAA`
-        `>dmel_0`
-        `ATGTTTTAA`
-        `>dmel_1`
-        `ATGTCTTAA`
-        `>dmel_2`
-        `ATGCTTTAA`
+```
+    >dsim_0
+    ATGCTTTAA
+    >dmel_0
+    ATGTTTTAA`
+    >dmel_1`
+    ATGTCTTAA
+    >dmel_2
+    ATGCTTTAA
+```
 
     3.b MK test
         `cmktest -f <fasta> -i <ingroup_name> -o <outgroup_name> -c <allele frequency cutoff to do MK test, usually 0.05>`
 
         an example:
-        `cmktest -f FBgn0032916.fasta -i dmel -o dsim -c 0.05`
+```
+        cmktest -f FBgn0032916.fasta -i dmel -o dsim -c 0.05
+```
 
         for details, use `cmktest -h`        
 
