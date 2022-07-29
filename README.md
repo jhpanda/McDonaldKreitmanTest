@@ -12,10 +12,9 @@
     Usage: `python vcf2msa.py <vcf> <fasta> <outdir> <species_name>`
 
     * Note for fasta input:
-        fasta headers should be CDS coordinates splitted by";"
-        i.e., `chrom(-):start1:end1;chrom(-):start2:end2`
-        add a "-" to chromosome if it is in reverse strand
-
+        fasta headers should be CDS coordinates splitted by";",  
+        i.e., `chrom(-):start1:end1;chrom(-):start2:end2`,  
+        here we add a "-" to chromosome if it is in reverse strand.
         one example: 
         ```
         >13:20208087:20208101;13:20216255:20216410;13:20220583:20221431
