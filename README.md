@@ -11,21 +11,21 @@
 
     Usage: `python vcf2msa.py <vcf> <fasta> <outdir> <species_name>`
 
-    * 1.a Note for fasta input:
-     - fasta headers should be CDS coordinates splitted by";"
-     - i.e., `chrom(-):start1:end1;chrom(-):start2:end2`
-     - add a "-" to chromosome if it is in reverse strand
+    * Note for fasta input:
+     ** fasta headers should be CDS coordinates splitted by";"
+     ** i.e., `chrom(-):start1:end1;chrom(-):start2:end2`
+     ** add a "-" to chromosome if it is in reverse strand
 
-     - one example: 
+     ** one example: 
 
-    ```
-    >13:20208087:20208101;13:20216255:20216410;13:20220583:20221431
-    ATG...TAA
-    ```
+        ```
+        >13:20208087:20208101;13:20216255:20216410;13:20220583:20221431
+        ATG...TAA
+        ```
 
 
     * 1.b Note for species name:
-     - species name will be used as headers of output MSA
+    ** species name will be used as headers of output MSA
 
         e.g.,
         ```
@@ -40,11 +40,11 @@
 
 
 2. use prank or other method to realign MSA to the outgroup CDS  
-    * 2.a add outgroup CDS to the output MSA, header should be
+    * add outgroup CDS to the output MSA, header should be
         `>outgroup_species_name_0`  
         e.g.,  
         `>dsim_0`  
-    * 2.b after editing use prank to align the new MSA  
+    * after editing use prank to align the new MSA  
         `prank -F -codon -d=<new_MSA_file> -o=<any_output_name>`  
 
 3. MK test using the aligned MSA  
