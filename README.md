@@ -4,7 +4,13 @@
 ## Reference:
    1. McDonald, J. H. Kreitman (1991).  
    2. Begun et al 2007.  
-   3. Nucleic Acids Res. 2008, W157-62, 10.1093/nar/gkn337.  
+   3. Nucleic Acids Res. 2008, W157-62, 10.1093/nar/gkn337.
+
+## Installation  
+`make` will generate executables including: `cmktest`, `cmktest_list`, and `fisher_exact_test`  
+1. `cmktest` is the command to do MK test, details can be found by `cmktest -h`.  
+2. `cmktest_list` uses threading to do MK test on a list of inputs.
+3. `fisher_exact_test` can be used to do fisher exact test. type in `fisher_exact_test -h` for more information.  
 
 ## Steps to do MK test:  
 1. `vcf2msa.py` to generate a MSA of the target gene(s)
